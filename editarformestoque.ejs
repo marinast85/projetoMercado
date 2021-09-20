@@ -1,0 +1,28 @@
+
+<section class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-5">Editar Produto</h1>
+            <form action="/editarProduto" method="POST">
+                <div class="form-group">
+                    <label for="nome_produto">Nome do Produto: </label>
+                    <input type="text" id="nome_produto" name="nome_produto" value="<%= lista_produto.nome_produto %>" placeholder="Nome" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="codigo_produto">Código: </label>
+                    <input type="text" id="codigo_produto" name="codigo_produto" class="form-control" value="<%= lista_produto.codigo_produto %>"  placeholder="código" required>
+                </div>
+                <div class="form-group">
+                  <label for="quantidade_produto">Quantidade: </label>
+                  <input type="number" id="quantidade_produto" name="quantidade_produto" class="form-control" value="<%= lista_produto.quantidade_produto %>"placeholder="Quantidade" required>
+                </div>
+                <div class="form-group">
+                    <label for="preco_produto">Preço: </label>
+                    <input type="number" id="preco_produto" name="preco_produto" class="form-control" value="<%= lista_produto.preco_produto %>"placeholder="Preço" required>
+                  </div>
+                <input type="hidden" name="id_produto" value="<%=lista_produto.id_produto %>"> 
+                <button type="submit" id="enviar" class="btn btn-primary" onclick="enviar_dados()">ENVIAR</button>
+            </form>
+        </div>
+    </div>
+</section>

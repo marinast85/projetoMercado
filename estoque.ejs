@@ -1,0 +1,52 @@
+
+<section class="container mb-5">
+    <div class="row">
+        <div class="col">
+            <div class="row mt-5">
+                <div class="col-6">
+                    <h1>Listar Produtos Cadastrados</h1>
+                </div>
+                <div class="col-6">
+                    <a href="/cadastrarProduto" class="btn btn-primary">Cadastrar Mercadoria</a>
+                    <a href="/venderProduto" class="btn btn-primary">Vender Mercadoria</a>
+                    <a href=""></a>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID do Produto: </th>
+                        <th>Nome do Produto: </th>
+                        <th>Código: </th>
+                        <th>Quantidade: </th>
+                        <th>Preço </th>
+                        <th>Ações: </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (produto_lista.length==0) { %>
+                        <div class="alert alert-warning"> Não existem dados cadastrados.</div>
+                    <% } else {%>
+                    <% produto_lista.forEach(function(produto){ %>
+                        <tr>
+                            <td><%=produto.id_produto %></td>
+                            <td><%=produto.nome_produto %></td>
+                            <td><%=produto.codigo_produto %></td>
+                            <td><%=produto.quantidade_produto %></td>
+                            <td><%=produto.preco_produto %></td>
+
+                            <td>
+                              <a href="/editarProduto/<%=produto.id_produto %>" class="btn btn-warning">Editar</a>
+                              <a href="/deletarProduto/<%=produto.id_produto %>" class="btn btn-danger">Deletar</a>
+                              <a href="/venderProduto/<%=produto.id_produto %>" class="btn btn-danger">Vendas</a>
+                            </td>
+                        </tr>
+
+                        
+                    <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
